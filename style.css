@@ -1,0 +1,90 @@
+@charset "UTF-8";
+
+* {
+    margin: 0;
+    padding: 0;
+}
+li{list-style: none;} /* github dots 점이 사라짐 */
+
+.wrap {
+    width: 800px;
+    margin: 100px auto 0;
+}
+
+.wrap .main {}
+
+.wrap .main .your-class {
+    height: 420px;
+}
+
+.wrap .main .your-class .slick-slide {
+    height: 420px;
+}
+
+.wrap .main .your-class .slick-slide video {
+    width: 100%;
+}
+
+.wrap .main .your-class .slick-arrow {
+    position: absolute;
+    top: calc(50% - 10px);
+    font-size: 0; /* -previous와 next라는 글자 없애기 */
+
+    /* 폰트에 아무런 설정이 없으면 폰트의 기본값은 16px이지만 크롬에서는 최소 폰트크기가 10px이기 때문에 이보다 작은 8px 등 적용이 안됨 */
+    visibility: hidden;
+
+}
+
+.wrap .main .your-class .slick-prev {
+    z-index: 5;
+    left: 5% ;
+        /* 나의 왼쪽은 부모로 부터 5%로 공간을 주겠다 */
+   
+    /* z-index: 포지션이 없으면 적용이 안됨 */
+}
+
+.wrap .main .your-class .slick-prev::after {
+    content: "\f137";
+    font-family: "Font Awesome 5 free";
+    font-weight: 900;
+    visibility: visible;
+    font-size: 30px; /* 자식까지도 폰트 사이즈를 0으로 바꿔버리기 때문에 따로 설정 해줘야함*/ 
+    color: antiquewhite;
+}
+
+.wrap .main .your-class .slick-next {
+    right: 5%;
+    /* 나의 오른쪽은 부모로 부터 5%로 공간을 주겠다 */
+}
+
+.wrap .main .your-class .slick-next::after{
+    content: "\f138";
+    font-family: "Font Awesome 5 free";
+    font-weight: 900;
+    visibility: visible;
+    font-size: 30px;
+    color: antiquewhite;}
+
+    .wrap .main .your-class .slick-dots{
+        text-align: center;
+    }
+    .wrap .main .your-class .slick-dots li{
+        display: inline-block;
+     /* li는 블록요소 / inline-block는 인라인속성이 있어서 공간을 인지함 */
+     margin: 20px 5px 0;
+
+    }
+
+    .wrap .main .your-class .slick-dots li button{
+        border: none; /* button은 선을 가지고 태어남 별종 인라인요소이나 넓이 높이를 인식(img도 인라인요소이나 넓이 높이 인식) */
+        font-size: 0;
+        width: 15px; height: 15px;
+        border-radius: 50%;
+        background-color: #999;
+        transition: 0.3s;
+    }
+    .wrap .main .your-class .slick-dots li.slick-active button{
+        background-color: plum;
+        width: 20px;
+        border-radius: 8px;
+    }
